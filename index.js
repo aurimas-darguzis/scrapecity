@@ -1,6 +1,7 @@
 import express from 'express';
 import { getInstagramCount, getTwitterCount } from './lib/scraper';
 import db from './lib/db';
+import './lib/cron';
 
 const app = express();
 
@@ -10,9 +11,6 @@ app.get('/scrape', async (req, res, next) => {
     getInstagramCount(),
     getTwitterCount()
   ]);
-  console.log(
-    `You have ${tCount} twitter followers and ${iCount} instagram followers!`
-  );
   res.json({ iCount, tCount });
 });
 
