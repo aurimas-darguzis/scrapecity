@@ -11,7 +11,7 @@ export default function Data() {
         {scrapes.twitter.map(scrape => {
           return (
             <li key={scrape.date}>
-              {scrape.count} -{' '}
+              {scrape.count} -
               {distanceInWords(new Date(scrape.date), new Date())}
             </li>
           );
