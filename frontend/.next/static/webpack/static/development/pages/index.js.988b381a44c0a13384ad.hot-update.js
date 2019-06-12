@@ -1,44 +1,42 @@
 webpackHotUpdate("static/development/pages/index.js",{
 
-/***/ "./components/Page.js":
+/***/ "./components/Data.js":
 /*!****************************!*\
-  !*** ./components/Page.js ***!
+  !*** ./components/Data.js ***!
   \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Page; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Data; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ScrapeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ScrapeContext */ "./components/ScrapeContext.js");
-var _jsxFileName = "/Users/aurimas.darguzis/Documents/Projects/playground/scrapecity/frontend/components/Page.js";
+var _jsxFileName = "/Users/aurimas.darguzis/Documents/Projects/playground/scrapecity/frontend/components/Data.js";
 
 
-function Page(_ref) {
-  var children = _ref.children;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ScrapeContext__WEBPACK_IMPORTED_MODULE_1__["ScrapeProvider"], {
-    value: {
-      hey: 'ho',
-      lets: 'go'
-    },
+
+function Data() {
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_ScrapeContext__WEBPACK_IMPORTED_MODULE_1__["ScrapeContext"]),
+      scrapes = _useContext.scrapes;
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 7
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "page",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 8
     },
     __self: this
-  }, children));
+  }, "Your data:"), scrapes.twitter.length);
 }
 
 /***/ })
 
 })
-//# sourceMappingURL=index.js.08ee88e535e6d68ea2fc.hot-update.js.map
+//# sourceMappingURL=index.js.988b381a44c0a13384ad.hot-update.js.map
