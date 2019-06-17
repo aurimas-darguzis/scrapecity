@@ -1,30 +1,13 @@
 import { useContext } from 'react';
 import { ScrapeContext } from './ScrapeContext';
-import { distanceInWords } from 'date-fns';
+import Table from './Table';
 
 export default function Data() {
   const { scrapes } = useContext(ScrapeContext);
   return (
     <div>
-      <h2>Your data:</h2>
-      <table>
-        <thead>
-          <tr>
-            <td>Count</td>
-            <td>Time</td>
-          </tr>
-        </thead>
-        <tbody>
-          {scrapes.twitter.map(scrape => {
-            return (
-              <tr key={scrape.date}>
-                <td>{scrape.count}</td>
-                <td>{distanceInWords(new Date(scrape.date), new Date())}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <h2>Twitter:</h2>
+      <Table scrapes={scrapes.twitter} />
     </div>
   );
 }
