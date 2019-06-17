@@ -22,8 +22,8 @@ app.get('/aggregate', async (req, res, next) => {
   // get the scrape data
   const { twitter, instagram } = db.value();
   // filter for only unique values
-  const uniqueTwitter = uniqueCount(twitter);
-  const uniqueInstagram = uniqueCount(instagram);
+  // const uniqueTwitter = uniqueCount(twitter);
+  // const uniqueInstagram = uniqueCount(instagram);
   // respond with json
   const aggTwitter = aggregate(twitter);
   res.json({ twitter: aggTwitter });
