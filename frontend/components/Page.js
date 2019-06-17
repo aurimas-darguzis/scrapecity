@@ -9,7 +9,7 @@ function useScrapes() {
   });
   // fetch function
   async function fetchScrapes() {
-    const res = await fetch('http://localhost:2090/data');
+    const res = await fetch('http://localhost:2090/aggregate');
     const data = await res.json();
     setScrapes(data);
   }

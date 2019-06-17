@@ -115,6 +115,10 @@
     {
       "date": 1560776400633,
       "count": 34
+    },
+    {
+      "date": 1560780000966,
+      "count": 34
     }
   ],
   "instagram": [
@@ -232,6 +236,10 @@
     },
     {
       "date": 1560776400634,
+      "count": "Instagram account is private - cannot access"
+    },
+    {
+      "date": 1560780000967,
       "count": "Instagram account is private - cannot access"
     }
   ]

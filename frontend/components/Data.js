@@ -11,7 +11,7 @@ export default function Data() {
         Refresh Data
       </button>
       <Chart scrapes={scrapes.twitter} />
-      <Chart scrapes={scrapes.instagram} />
+      {/* <Chart scrapes={scrapes.instagram} /> */}
       <h2>Twitter:</h2>
       <Table scrapes={scrapes.twitter} />
     </div>
