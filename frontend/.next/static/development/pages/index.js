@@ -74578,7 +74578,8 @@ var _jsxFileName = "/Users/aurimas.darguzis/Documents/Projects/playground/scrape
 
 function Data() {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_ScrapeContext__WEBPACK_IMPORTED_MODULE_1__["ScrapeContext"]),
-      scrapes = _useContext.scrapes;
+      scrapes = _useContext.scrapes,
+      fetchScrapes = _useContext.fetchScrapes;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
@@ -74586,31 +74587,39 @@ function Data() {
       lineNumber: 9
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Chart__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    scrapes: scrapes.twitter,
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: fetchScrapes,
+    type: "button>",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
+    },
+    __self: this
+  }, "Refresh Data"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Chart__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    scrapes: scrapes.twitter,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Chart__WEBPACK_IMPORTED_MODULE_3__["default"], {
     scrapes: scrapes.instagram,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 14
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 15
     },
     __self: this
   }, "Twitter:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_2__["default"], {
     scrapes: scrapes.twitter,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 16
     },
     __self: this
   }));
@@ -74644,16 +74653,23 @@ var _jsxFileName = "/Users/aurimas.darguzis/Documents/Projects/playground/scrape
 
 
 function useScrapes() {
+  // initial state inside our hook
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])({
     twitter: [],
     instagram: []
   }),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useState, 2),
       scrapes = _useState2[0],
-      setScrapes = _useState2[1];
+      setScrapes = _useState2[1]; // fetch function
 
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
+
+  function fetchScrapes() {
+    return _fetchScrapes.apply(this, arguments);
+  } // didMount/didUpdate
+
+
+  function _fetchScrapes() {
+    _fetchScrapes = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
     /*#__PURE__*/
     _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       var res, data;
@@ -74661,47 +74677,52 @@ function useScrapes() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log('Mounting or Updating');
-              _context.next = 3;
+              _context.next = 2;
               return fetch('http://localhost:2090/data');
 
-            case 3:
+            case 2:
               res = _context.sent;
-              _context.next = 6;
+              _context.next = 5;
               return res.json();
 
-            case 6:
+            case 5:
               data = _context.sent;
               setScrapes(data);
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
-    }))();
+    }));
+    return _fetchScrapes.apply(this, arguments);
+  }
+
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    fetchScrapes();
   }, []);
-  return scrapes;
+  return {
+    scrapes: scrapes,
+    fetchScrapes: fetchScrapes
+  };
 }
 
-function Page(_ref2) {
-  var children = _ref2.children;
-  var scrapes = useScrapes();
+function Page(_ref) {
+  var children = _ref.children;
+  var hookInfo = useScrapes();
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ScrapeContext__WEBPACK_IMPORTED_MODULE_4__["ScrapeProvider"], {
-    value: {
-      scrapes: scrapes
-    },
+    value: hookInfo,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "page",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 28
     },
     __self: this
   }, children));

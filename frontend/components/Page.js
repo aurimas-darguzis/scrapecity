@@ -2,27 +2,29 @@ import { useState, useEffect } from 'react';
 import { ScrapeProvider } from './ScrapeContext';
 
 function useScrapes() {
+  // initial state inside our hook
   const [scrapes, setScrapes] = useState({
     twitter: [],
     instagram: []
   });
-
-  useEffect(function() {
-    (async () => {
-      console.log('Mounting or Updating');
-      const res = await fetch('http://localhost:2090/data');
-      const data = await res.json();
-      setScrapes(data);
-    })();
+  // fetch function
+  async function fetchScrapes() {
+    const res = await fetch('http://localhost:2090/data');
+    const data = await res.json();
+    setScrapes(data);
+  }
+  // didMount/didUpdate
+  useEffect(() => {
+    fetchScrapes();
   }, []);
-  return scrapes;
+  return { scrapes, fetchScrapes };
 }
 
 export default function Page({ children }) {
-  const scrapes = useScrapes();
+  const hookInfo = useScrapes();
 
   return (
-    <ScrapeProvider value={{ scrapes }}>
+    <ScrapeProvider value={hookInfo}>
       <div className='page'>{children}</div>
     </ScrapeProvider>
   );
