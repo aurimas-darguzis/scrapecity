@@ -143,7 +143,7 @@ function Data() {
         lineNumber: 13
       },
       __self: this
-    }, scrape.count, " -", ' ', Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["distanceInWords"])(new Date(scrape.date), new Date()));
+    }, scrape.count, " -", Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["distanceInWords"])(new Date(scrape.date), new Date()));
   })));
 }
 
