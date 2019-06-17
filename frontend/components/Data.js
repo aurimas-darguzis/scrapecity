@@ -7,16 +7,24 @@ export default function Data() {
   return (
     <div>
       <h2>Your data:</h2>
-      <ul>
-        {scrapes.twitter.map(scrape => {
-          return (
-            <li key={scrape.date}>
-              {scrape.count} -
-              {distanceInWords(new Date(scrape.date), new Date())}
-            </li>
-          );
-        })}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <td>Count</td>
+            <td>Time</td>
+          </tr>
+        </thead>
+        <tbody>
+          {scrapes.twitter.map(scrape => {
+            return (
+              <tr key={scrape.date}>
+                <td>{scrape.count}</td>
+                <td>{distanceInWords(new Date(scrape.date), new Date())}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

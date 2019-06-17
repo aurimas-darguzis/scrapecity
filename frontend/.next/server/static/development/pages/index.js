@@ -129,22 +129,64 @@ function Data() {
       lineNumber: 9
     },
     __self: this
-  }, "Your data:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, "Your data:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }, "Count"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, "Time"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
   }, scrapes.twitter.map(function (scrape) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: scrape.date,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 20
       },
       __self: this
-    }, scrape.count, " -", Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["distanceInWords"])(new Date(scrape.date), new Date()));
-  })));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      },
+      __self: this
+    }, scrape.count), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, Object(date_fns__WEBPACK_IMPORTED_MODULE_2__["distanceInWords"])(new Date(scrape.date), new Date())));
+  }))));
 }
 
 /***/ }),
